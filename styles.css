@@ -18,6 +18,9 @@ em {
    .contact{
       font-size: 32px; 
    }
+#about{
+ padding: 10px;
+}
    a{
     text-decoration: none;
     padding: 20px;
