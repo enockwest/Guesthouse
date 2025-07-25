@@ -23,7 +23,11 @@ em {
     padding: 20px;
 
    }
- 
+ .uniform-image {
+  height: 200px; /* Set the height you want */
+  object-fit: cover;
+  width: 100%; /* Optional: scale to container width */
+ }
 .boarder {
   border: 3px solid #0d6efd; /* Bootstrap primary color */
   border-radius: 10px;
