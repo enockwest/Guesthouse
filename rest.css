@@ -1,0 +1,116 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: black;
+    }
+
+    .glass-container {
+      width: 90%;
+      margin-top: 300px;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      box-shadow: 0 0 40px rgba(255, 0, 150, 0.3);
+      transition: 0.3s ease;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid blue;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #000;
+      font-weight: 500;
+      transition: 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #ff4dd2;
+      box-shadow: 0 0 10px #ff4dd2;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: 0.3s ease;
+      background: transparent;
+      border: 2px solid #ff4dd2;
+      color: black;
+      box-shadow: 0 0 10px #ff4dd2;
+    }
+
+    button:hover {
+      background-color: #ff4dd2;
+      color: #000;
+      font-weight: bold;
+      box-shadow: 0 0 20px #ff4dd2;
+    }
+
+    .submit-btn {
+      border-color: #00ff9d;
+      box-shadow: 0 0 10px #00ff9d;
+    }
+
+    .submit-btn:hover {
+      background-color: #00ff9d;
+      box-shadow: 0 0 20px #00ff9d;
+      color: #000;
+    }
+
+    .confirmation {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(0, 255, 0, 0.15);
+      border-left: 5px solid #0f0;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    ::placeholder {
+      color: #555;
+    }

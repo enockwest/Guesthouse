@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Room Booking</title>
+  <!-- Stylish Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="room.css">
+   
+</head>
+<body>
+
+<div class="glass-container">
+  <h2>Room Booking</h2>
+  <form id="bookingForm" onsubmit="submitBooking(event)">
+    <label>Name:</label>
+    <input type="text" id="name" placeholder="Your name" required>
+
+    <label>Phone Number:</label>
+    <input type="tel" id="phone" placeholder="e.g. 1234567890" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" placeholder="you@example.com" required>
+
+    <label>Type of People:</label>
+    <select id="peopleType" required>
+      <option value="">Select</option>
+      <option value="Married">Married</option>
+      <option value="Family">Family</option>
+      <option value="Adults">Adults</option>
+      <option value="Single">Single</option>
+    </select>
+
+    <label>Type of Room:</label>
+    <select id="roomType" required>
+      <option value="">Select</option>
+      <option value="single">Single - $50/night</option>
+      <option value="double">Double - $90/night</option>
+    </select>
+
+    <label>Number of Rooms:</label>
+    <input type="number" id="numRooms" min="1" required>
+
+    <label>Check-In Date:</label>
+    <input type="date" id="checkin" required>
+
+    <label>Check-Out Date:</label>
+    <input type="date" id="checkout" required>
+
+    <div class="buttons">
+      <button type="button" onclick="calculateFees()">Calculate Total</button>
+      <button type="submit" class="submit-btn">Submit Booking</button>
+    </div>
+
+    <div class="result" id="result" style="display: none;"></div>
+  </form>
+</div>
+
+<script>
+  // Set random background image
+  const images = [
+    "a21.jpeg",
+  "a22.jpeg",
+  "a18.jpeg",
+  "a17.jpeg"
+  ];
+  document.body.style.backgroundImage = `url('${images[Math.floor(Math.random() * images.length)]}')`;
+
+  // Fee calculation
+  function calculateFees() {
+    const roomType = document.getElementById("roomType").value;
+    const numRooms = parseInt(document.getElementById("numRooms").value);
+    const checkin = new Date(document.getElementById("checkin").value);
+    const checkout = new Date(document.getElementById("checkout").value);
+    const resultBox = document.getElementById("result");
+
+    if (checkout <= checkin) {
+      alert("Check-out must be after Check-in.");
+      return;
+    }
+
+    const duration = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+    let feePerNight = roomType === "single" ? 50 : 90;
+    let totalCost = feePerNight * numRooms * duration;
+
+    resultBox.style.display = "block";
+    resultBox.innerHTML = `
+      <strong>Booking Summary:</strong><br>
+      Duration: ${duration} night(s)<br>
+      Room Type: ${roomType.charAt(0).toUpperCase() + roomType.slice(1)}<br>
+      Rooms: ${numRooms}<br>
+      Total Cost: <strong>$${totalCost}</strong>
+    `;
+  }
+
+  // Simulated form submit
+  function submitBooking(event) {
+    event.preventDefault();
+    alert("✅ Booking submitted successfully!");
+    document.getElementById("bookingForm").reset();
+    document.getElementById("result").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
